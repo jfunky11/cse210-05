@@ -65,12 +65,24 @@ class HandleCollisionsAction(Action):
         segments_one = player_one.get_segments()[1:]
         segments_two = player_two.get_segments()[1:]
 
+        x = int(constants.MAX_X / 2)
+        y = int(constants.MAX_Y / 2)
+        position = Point(x, y)
+
         for segment_one in segments_one:
             if player_two_head.get_position().equals(segment_one.get_position()):
                 self._is_game_over = True
+                message = Actor()
+                message.set_text("Player 1 Wins!")
+                message.set_position(position)
+                cast.add_actor("messages", message)
         for segment_two in segments_two:
             if player_one_head.get_position().equals(segment_two.get_position()):
                 self._is_game_over = True
+                message = Actor()
+                message.set_text("Player 2 Wins!")
+                message.set_position(position)
+                cast.add_actor("messages", message)
 
 
         # for segment in segments:
@@ -89,15 +101,6 @@ class HandleCollisionsAction(Action):
             segments_one = player_one.get_segments()
             segments_two = player_two.get_segments()
             food = cast.get_first_actor("foods")
-
-            x = int(constants.MAX_X / 2)
-            y = int(constants.MAX_Y / 2)
-            position = Point(x, y)
-
-            message = Actor()
-            message.set_text("Game Over!")
-            message.set_position(position)
-            cast.add_actor("messages", message)
 
             for segment in segments_one:
                 segment.set_color(constants.WHITE)
