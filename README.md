@@ -1,6 +1,9 @@
-# Snake
-Snake is a clone of the classic game that we all used to play on our cellphones. You play this game 
-on a simulated terminal, with a textual interface.
+# cse210-04
+CSE210, Week 9 team group assignment, Cycle
+# cylce
+Cycle is a game where the players try to cut each other off using cycles that leave a trail behind them.
+The best rides are the ones where you bite off much more than you can chew, and live through it. Cycle is played according to the following rules. Players can move up, down, left and right. Player one moves using the W, S, A and D keys. Player two moves using the I, K, J and L keys. Each player's trail grows as they move. Players try to maneuver so the opponent collides with their trail.
+If a player collides with their opponent's trail the game is over.
 
 ## Getting Started
 ---
@@ -10,7 +13,7 @@ python3 -m pip install raylib
 ```
 After you've installed the required libraries, open a terminal and browse to the project's root folder. Start the program by running the following command.```
 
-python3 snake 
+python3 Cycle 
 ```
 You can also run the program from an IDE like Visual Studio Code. Start your IDE and open the 
 project folder. Select the main module inside the hunter folder and click the "run" icon.
@@ -19,25 +22,48 @@ project folder. Select the main module inside the hunter folder and click the "r
 ---
 The project files and folders are organized as follows:
 ```
-root                    (project root folder)
-+-- snake               (source code for game)
-  +-- game              (specific game classes)
-  +-- __main__.py       (entry point for program)
-+-- README.md           (general info)
+root                   	                (project root folder)
+  +--__main__.py		                    (program entry point)
+  +--README.md			                    (general info)
+  +--constants.py                       (general info)
+  +--game/
+    +--casting/
+      +--actor.py                       (game class with methods)
+      +--cast.py                        (game class with methods)
+      +--food.py                        (game class with methods)
+      +--score.py                       (game class with methods)
+      +--snake.py                       (game class with methods)
+    +--directing/
+      +--director.py                    (game class with methods)
+    +--scripting/
+      +--action.py                      (game class with methods)
+      +--control_actors_action.py       (game class with methods)
+      +--draw_actors_action.py          (game class with methods)
+      +--handle_collisions_action.py    (game class with methods)
+      +--move_actors-action.py          (game class with methods)
+      +--script.py                      (game class with methods)
+    +--services/
+      +--keyboard-services.py           (game class with methods)
+      +--video-service.py               (game class with methods)
+    +--shared/
+      +--color.py                       (game class with methods)
+      +--point.py                       (game class with methods)
+
 ```
 
 ## Required Technologies
 ---
-* Python 3.8.0
-* Raylib Python CFFI 3.7
+* Python 3.10.1
+* raylib
 
 ## Authors
 ---
-* TODO: Add your name and email here
 * [Cameron Barrett](https://github.com/Cams1stGitHub) 
 * [Robert Odell](https://github.com/rodell1983)
 * [Wilson Romero](https://github.com/wilsonBYU)
 * [Nourcel Kaniki](https://github.com/Nourcel)
 * [Jenson Smith](https://github.com/Jfunky11)
 * [Huguette kabemba](https://github.com/huguettekabemba)
+
+
 
