@@ -32,7 +32,7 @@ root                   	                (project root folder)
       +--cast.py                        (game class with methods)
       +--food.py                        (game class with methods)
       +--score.py                       (game class with methods)
-      +--snake.py                       (game class with methods)
+      +--cycle.py                       (game class with methods)
     +--directing/
       +--director.py                    (game class with methods)
     +--scripting/
