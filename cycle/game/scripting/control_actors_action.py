@@ -29,7 +29,11 @@ class ControlActorsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
+
         """
+
+        # Snake One keyboard inputs
+
         # left
         if self._keyboard_service.is_key_down('a'):
             self._snake_one_direction = Point(-constants.CELL_SIZE, 0)
@@ -45,10 +49,11 @@ class ControlActorsAction(Action):
         # down
         if self._keyboard_service.is_key_down('s'):
             self._snake_one_direction = Point(0, constants.CELL_SIZE)
-        
 
         snake_one = cast.get_first_actor("player_one")
         snake_one.turn_head(self._snake_one_direction)
+
+        # Snake two keyboard inputs
 
         # left
         if self._keyboard_service.is_key_down('j'):
