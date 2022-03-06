@@ -17,15 +17,15 @@ from game.shared.point import Point
 
 
 def main():
-    snake_one = Cycle(Point(int(constants.MAX_X - 600), int(constants.MAX_Y / 2)))
-    snake_two = Cycle(Point(int(constants.MAX_X - 300), int(constants.MAX_Y / 2)))
-    snake_one.set_body_color(constants.GREEN)
-    snake_two.set_body_color(constants.RED)
+    cycle_one = Cycle(Point(int(constants.MAX_X - 600), int(constants.MAX_Y / 2)))
+    cycle_two = Cycle(Point(int(constants.MAX_X - 300), int(constants.MAX_Y / 2)))
+    cycle_one.set_cycle_color(constants.GREEN)
+    cycle_two.set_cycle_color(constants.RED)
 
     # create the cast
     cast = Cast()
-    cast.add_actor("player_one", snake_one)
-    cast.add_actor("player_two", snake_two)
+    cast.add_actor("cycle_one", cycle_one)
+    cast.add_actor("cycle_two", cycle_two)
     cast.add_actor("scores", Score())
    
     # start the game

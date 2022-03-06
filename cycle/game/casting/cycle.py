@@ -18,7 +18,7 @@ class Cycle(Actor):
 
         self._segments = []
         self._color = Color(255, 255, 255)
-        self._prepare_body(position)
+        self._prepare_cycle(position)
 
     def get_segments(self):
         return self._segments
@@ -58,7 +58,7 @@ class Cycle(Actor):
     def turn_head(self, velocity):
         self._segments[0].set_velocity(velocity)
 
-    def _prepare_body(self, position):
+    def _prepare_cycle(self, position):
         x = position.get_x()
         y = position.get_y()
 
@@ -85,7 +85,7 @@ class Cycle(Actor):
     #         i.set_position(cycle_position)
     #         cycle_position = cycle_position.add(Point(-1, 0))
 
-    def set_body_color(self, color):
+    def set_cycle_color(self, color):
         self._color = color
 
         for segment in self._segments:

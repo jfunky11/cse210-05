@@ -27,8 +27,8 @@ class DrawActorsAction(Action):
             script (Script): The script of Actions in the game.
         """
         score = cast.get_first_actor("scores")
-        player_one = cast.get_first_actor("player_one")
-        player_two = cast.get_first_actor("player_two")
+        player_one = cast.get_first_actor("cycle_one")
+        player_two = cast.get_first_actor("cycle_two")
         segments_one = player_one.get_segments()
         segments_two = player_two.get_segments()
         messages = cast.get_actors("messages")
