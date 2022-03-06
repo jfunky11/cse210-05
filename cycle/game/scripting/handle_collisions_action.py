@@ -31,10 +31,10 @@ class HandleCollisionsAction(Action):
         self._handle_wall(cast)
 
     def _handle_wall(self, cast):
-        snake_one = cast.get_first_actor("player_one")
-        snake_two = cast.get_first_actor("player_two")
-        snake_one.wall(1, self._is_game_over)
-        snake_two.wall(1, self._is_game_over)
+        cycle_one = cast.get_first_actor("cycle_one")
+        cycle_two = cast.get_first_actor("cycle_two")
+        cycle_one.wall(1, self._is_game_over)
+        cycle_two.wall(1, self._is_game_over)
 
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the snake collides with one of its segments.
@@ -44,28 +44,28 @@ class HandleCollisionsAction(Action):
         """
         # Adjust for two players
         # snake = cast.get_first_actor("snakes")
-        player_one = cast.get_first_actor("player_one")
-        player_two = cast.get_first_actor("player_two")
+        cycle_one = cast.get_first_actor("cycle_one")
+        cycle_two = cast.get_first_actor("cycle_two")
         # head = snake.get_segments()[0]
-        player_one_head = player_one.get_segments()[0]
-        player_two_head = player_two.get_segments()[0]
+        cycle_one_head = cycle_one.get_segments()[0]
+        cycle_two_head = cycle_two.get_segments()[0]
         # segments = snake.get_segments()[1:]
-        segments_one = player_one.get_segments()[1:]
-        segments_two = player_two.get_segments()[1:]
+        segments_one = cycle_one.get_segments()[1:]
+        segments_two = cycle_two.get_segments()[1:]
 
         x = int(constants.MAX_X / 2)
         y = int(constants.MAX_Y / 2)
         position = Point(x, y)
 
         for segment_one in segments_one:
-            if player_two_head.get_position().equals(segment_one.get_position()):
+            if cycle_two_head.get_position().equals(segment_one.get_position()):
                 self._is_game_over = True
                 message = Actor()
                 message.set_text("Player 1 Wins!")
                 message.set_position(position)
                 cast.add_actor("messages", message)
         for segment_two in segments_two:
-            if player_one_head.get_position().equals(segment_two.get_position()):
+            if cycle_one_head.get_position().equals(segment_two.get_position()):
                 self._is_game_over = True
                 message = Actor()
                 message.set_text("Player 2 Wins!")
@@ -84,11 +84,10 @@ class HandleCollisionsAction(Action):
             cast (Cast): The cast of Actors in the game.
         """
         if self._is_game_over:
-            player_one = cast.get_first_actor("player_one")
-            player_two = cast.get_first_actor("player_two")
-            segments_one = player_one.get_segments()
-            segments_two = player_two.get_segments()
-            food = cast.get_first_actor("foods")
+            cycle_one = cast.get_first_actor("cycle_one")
+            cycle_two = cast.get_first_actor("cycle_two")
+            segments_one = cycle_one.get_segments()
+            segments_two = cycle_two.get_segments()
 
             for segment in segments_one:
                 segment.set_color(constants.WHITE)

@@ -18,7 +18,7 @@ class Cycle(Actor):
 
         self._segments = []
         self._color = Color(255, 255, 255)
-        self._prepare_body(position)
+        self._prepare_cycle(position)
 
     def get_segments(self):
         return self._segments
@@ -35,7 +35,7 @@ class Cycle(Actor):
             velocity = previous.get_velocity()
             trailing.set_velocity(velocity)
 
-    def get_head(self):
+    def get_cycle(self):
         return self._segments[0]
 
     def wall(self, number_of_segments, game):
@@ -55,10 +55,10 @@ class Cycle(Actor):
                 segment.set_color(constants.WHITE)
             self._segments.append(segment)
 
-    def turn_head(self, velocity):
+    def turn_cycle(self, velocity):
         self._segments[0].set_velocity(velocity)
 
-    def _prepare_body(self, position):
+    def _prepare_cycle(self, position):
         x = position.get_x()
         y = position.get_y()
 
@@ -74,18 +74,7 @@ class Cycle(Actor):
             segment.set_color(self._color)
             self._segments.append(segment)
 
-    # def set_cycle_position(self, cycle_position):
-    #     # Set the position for each cycle
-    #     self._cycle_position = cycle_position
-    #     for i in self._segments:
-    #         # Expecting a Point class value
-    #         # cycle_position = Point()
-    #         cycle_y = cycle_position.get_y()
-    #         cycle_x = cycle_position.get_x()
-    #         i.set_position(cycle_position)
-    #         cycle_position = cycle_position.add(Point(-1, 0))
-
-    def set_body_color(self, color):
+    def set_cycle_color(self, color):
         self._color = color
 
         for segment in self._segments:

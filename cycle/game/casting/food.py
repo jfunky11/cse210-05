@@ -7,7 +7,7 @@ from game.shared.point import Point
 class Food(Actor):
     """
     A tasty item that snakes like to eat.
-    
+
     The responsibility of Food is to select a random position and points that it's worth.
 
     Attributes:
@@ -20,7 +20,7 @@ class Food(Actor):
         self.set_text("@")
         self.set_color(constants.RED)
         self.reset()
-        
+
     def reset(self):
         """Selects a random position and points that the food is worth."""
         self._points = random.randint(1, 8)
@@ -29,10 +29,10 @@ class Food(Actor):
         position = Point(x, y)
         position = position.scale(constants.CELL_SIZE)
         self.set_position(position)
-        
+
     def get_points(self):
         """Gets the points the food is worth.
-        
+
         Returns:
             points (int): The points the food is worth.
         """
