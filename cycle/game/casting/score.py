@@ -1,4 +1,6 @@
 from game.casting.actor import Actor
+from game.shared.point import Point
+import constants
 
 
 class Score(Actor):
@@ -16,6 +18,10 @@ class Score(Actor):
         super().__init__()
         self._points = 0
         self.add_points(0)
+        # To get the location of score from Constants file
+        position = Point(constants.SCORE_X, constants.SCORE_Y)
+        # to set the position of the score  
+        self.set_position(position)
 
     def add_points(self, points):
         """Adds the given points to the score's total points.
@@ -24,4 +30,5 @@ class Score(Actor):
             points (int): The points to add.
         """
         self._points += points
-        self.set_text(f"Score: {self._points}")
+        # to updated and show Segments created instead of points
+        self.set_text(f"Segments Created: {self._points}")  
