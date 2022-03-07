@@ -20,7 +20,7 @@ class Score(Actor):
         super().__init__()
         self._points = 0
         #self.add_points(0)
-        cycle = Cycle(position)
+        cycle = Cycle(Actor)
         #to get the leght of the segment list
         self._segment_count = len(cycle.get_segments())
         self.update_seg_count(self._segment_count)
