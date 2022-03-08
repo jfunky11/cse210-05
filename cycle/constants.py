@@ -17,5 +17,5 @@ GREEN = Color(0, 255, 0)
 # x component from where score is displayed
 SCORE_X = 350 
 # y component from where score is displayed
-SCORE_Y = 5 
+SCORE_Y = 0 
 
