@@ -19,6 +19,7 @@ class Cycle(Actor):
         self._segments = []
         self._color = Color(255, 255, 255)
         self._prepare_cycle(position)
+        
 
     def get_segments(self):
         return self._segments
@@ -79,4 +80,18 @@ class Cycle(Actor):
 
         for segment in self._segments:
             segment.set_color(self._color)
+    
+    def cycle_body(self):
+        """Prepares the snake body by adding segments.
+        
+        Args:
+            self (Snake): an instance of Snake.
+        """
+        x = int(constants.MAX_X / 2)
+        y = int(constants.MAX_Y / 2)
+        for n in range(constants.SNAKE_LENGTH):
+            text = "8" if n == 0 else "#"
+            position = Point(x - n, y)
+            velocity = Point(1, 0)
+            self._add_segment(text, position, velocity)
 
