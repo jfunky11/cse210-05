@@ -18,6 +18,3 @@ class GameOver(Actor):
         super().__init__()
         self._points = 0
         self.set_color(constants.GREEN)
-
-        
-    
