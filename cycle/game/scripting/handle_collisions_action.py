@@ -57,6 +57,7 @@ class HandleCollisionsAction(Action):
         y = int(constants.MAX_Y / 2)
         position = Point(x, y)
 
+        # if player 2 crosses player 1's tale game displays player one 1 wins
         for segment_one in segments_one:
             if cycle_two_head.get_position().equals(segment_one.get_position()):
                 self._is_game_over = True
@@ -64,6 +65,8 @@ class HandleCollisionsAction(Action):
                 message.set_text("Player 1 Wins!")
                 message.set_position(position)
                 cast.add_actor("messages", message)
+
+        # if player 1 crosses player 2's tale game displays player one 2 wins
         for segment_two in segments_two:
             if cycle_one_head.get_position().equals(segment_two.get_position()):
                 self._is_game_over = True
