@@ -59,8 +59,7 @@ class Cycle(Actor):
             segment.set_color(constants.WHITE)
         self._segments.append(segment)
 
-    def turn_cycle(self, velocity, message):
-        print(message)
+    def turn_cycle(self, velocity):
         self._segments[0].set_velocity(velocity)
 
     def _prepare_cycle(self, position):

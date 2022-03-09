@@ -3,6 +3,7 @@ import constants
 from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
+from game.casting.game_over_message import GameOver
 
 
 class HandleCollisionsAction(Action):
@@ -19,7 +20,9 @@ class HandleCollisionsAction(Action):
     def __init__(self):
         """Constructs a new HandleCollisionsAction."""
         self._is_game_over = False
-        self._game_over_message = Actor()
+        self._game_over_message = ""
+
+        
 
     def execute(self, cast, script):
         """Executes the handle collisions action.
@@ -46,44 +49,44 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
+        score1 = cast.get_first_actor("score1")
+        score2 = cast.get_first_actor("score2")
         # Adjust for two players
         # snake = cast.get_first_actor("snakes")
         cycle_one = cast.get_first_actor("cycle_one")
         cycle_two = cast.get_first_actor("cycle_two")
         # head = snake.get_segments()[0]
-        cycle_one_head = cycle_one.get_segments()[0]
-        cycle_two_head = cycle_two.get_segments()[0]
+        cycle_one_head = cycle_one.get_cycle()
+        cycle_two_head = cycle_two.get_cycle()
         # segments = snake.get_segments()[1:]
         segments_one = cycle_one.get_segments()[1:]
         segments_two = cycle_two.get_segments()[1:]
-
-
         
         for segment_one in segments_one:
             if cycle_two_head.get_position().equals(segment_one.get_position()):
-                self._is_game_over = True
-                self._game_over_message.set_text(f"{cycle_one.get_name()} wins!")
+                score2.reduce_points()
+                if score2.get_points() < 1:
+                    self._game_over_message = f"{cycle_one.get_name()} wins!"
+                    self._is_game_over = True
 
             if cycle_one_head.get_position().equals(segment_one.get_position()):
-                self._is_game_over = True
-                self._game_over_message.set_text(f"{cycle_two.get_name()} wins!")
+                score1.reduce_points()
+                if score1.get_points() < 1:
+                    self._game_over_message = f"{cycle_two.get_name()} wins!"
+                    self._is_game_over = True
 
         for segment_two in segments_two:
             if cycle_one_head.get_position().equals(segment_two.get_position()):
-                self._is_game_over = True
-
-                self._game_over_message.set_text(f"{cycle_two.get_name()} wins!")
+                score1.reduce_points()
+                if score2.get_points() < 1:
+                    self._game_over_message = f"{cycle_two.get_name()} wins!"
+                    self._is_game_over = True
 
             if cycle_two_head.get_position().equals(segment_two.get_position()):
-                self._is_game_over = True
-
-                self._game_over_message.set_text(f"{cycle_one.get_name()} wins!")
-
-
-
-        # for segment in segments:
-        #     if head.get_position().equals(segment.get_position()):
-        #         self._is_game_over = True
+                score2.reduce_points()
+                if score2.get_points() < 1:
+                    self._game_over_message = f"{cycle_one.get_name()} wins!"
+                    self._is_game_over = True
 
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns the snake and food white if the game is over.
@@ -103,11 +106,11 @@ class HandleCollisionsAction(Action):
             segments_one = cycle_one.get_segments()
             segments_two = cycle_two.get_segments()
             
-            self._game_over_message.set_font_size(45)
-            self._game_over_message.set_position(position)
-            self._game_over_message.set_color(constants.GREEN)
-            
-            cast.add_actor("messages", self._game_over_message)
+            game_over = GameOver()
+            game_over.set_position(position)
+            game_over.set_text(self._game_over_message)
+            game_over.set_font_size(45)
+            cast.add_actor("messages", game_over)
             
             for segment in segments_one:
                 segment.set_color(constants.WHITE)

@@ -50,7 +50,7 @@ class ControlActorsAction(Action):
             self._cycle_one_direction = Point(0, constants.CELL_SIZE)
 
         cycle_one = cast.get_first_actor("cycle_one")
-        cycle_one.turn_cycle(self._cycle_one_direction, "moved from control actors / cycle one")
+        cycle_one.turn_cycle(self._cycle_one_direction)
 
         # Cycle two keyboard Inputs
 
@@ -71,4 +71,4 @@ class ControlActorsAction(Action):
             self._cycle_two_direction = Point(0, constants.CELL_SIZE)
 
         cycle_two = cast.get_first_actor("cycle_two")
-        cycle_two.turn_cycle(self._cycle_two_direction, "moved from control actors / cycle 2")
+        cycle_two.turn_cycle(self._cycle_two_direction)
