@@ -19,10 +19,13 @@ class Cycle(Actor):
         self._segments = []
         self._color = Color(255, 255, 255)
         self._prepare_cycle(position)
-        
+        self._name = ""
 
     def get_segments(self):
         return self._segments
+        
+    def get_name(self):
+        return self._name
 
     def move_next(self):
 
@@ -39,24 +42,25 @@ class Cycle(Actor):
     def get_cycle(self):
         return self._segments[0]
 
-    def wall(self, number_of_segments, game):
-        for i in range(number_of_segments):
-            tail = self._segments[-1]
-            velocity = tail.get_velocity()
-            offset = velocity.reverse()
-            position = tail.get_position().add(offset)
+    def wall(self, game):  
 
-            segment = Actor()
-            segment.set_position(position)
-            segment.set_velocity(velocity)
-            segment.set_text("#")
-            if not game:
-                segment.set_color(self._color)
-            else:
-                segment.set_color(constants.WHITE)
-            self._segments.append(segment)
+        tail = self._segments[-1]
+        velocity = tail.get_velocity()
+        offset = velocity.reverse()
+        position = tail.get_position().add(offset)
 
-    def turn_cycle(self, velocity):
+        segment = Actor()
+        segment.set_position(position)
+        segment.set_velocity(velocity)
+        segment.set_text("#")
+        if not game:
+            segment.set_color(self._color)
+        else:
+            segment.set_color(constants.WHITE)
+        self._segments.append(segment)
+
+    def turn_cycle(self, velocity, message):
+        print(message)
         self._segments[0].set_velocity(velocity)
 
     def _prepare_cycle(self, position):
@@ -80,5 +84,8 @@ class Cycle(Actor):
 
         for segment in self._segments:
             segment.set_color(self._color)
+            
+    def set_name(self, name):
+        self._name = name
     
     
