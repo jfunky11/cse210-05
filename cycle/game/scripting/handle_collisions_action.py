@@ -62,6 +62,7 @@ class HandleCollisionsAction(Action):
         segments_one = cycle_one.get_segments()[1:]
         segments_two = cycle_two.get_segments()[1:]
         
+        # finds which user wins and displays their name
         for segment_one in segments_one:
             if cycle_two_head.get_position().equals(segment_one.get_position()):
                 score2.reduce_points()
