@@ -21,6 +21,10 @@ def main():
     cycle_two = Cycle(Point(int(constants.MAX_X - 300), int(constants.MAX_Y / 2)))
     cycle_one.set_cycle_color(constants.GREEN)
     cycle_two.set_cycle_color(constants.RED)
+    cycle_one_name = input("Please enter player 1 name: ")
+    cycle_two_name = input("Please enter player 2 name: ")
+    cycle_one.set_name(cycle_one_name)
+    cycle_two.set_name(cycle_two_name)
 
     # create the cast
     cast = Cast()
@@ -34,8 +38,8 @@ def main():
 
     script = Script()
     script.add_action("input", ControlActorsAction(keyboard_service))
-    script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
+    script.add_action("update", MoveActorsAction())
     script.add_action("output", DrawActorsAction(video_service))
 
     director = Director(video_service)
