@@ -15,6 +15,8 @@ from game.shared.color import Color
 from game.shared.point import Point
 
 def main():
+
+    # crestes two cycles, gets their position and color
     cycle_one = Cycle(Point(int(constants.MAX_X - 600), int(constants.MAX_Y / 2)))
     cycle_two = Cycle(Point(int(constants.MAX_X - 300), int(constants.MAX_Y / 2)))
     cycle_one.set_cycle_color(constants.GREEN)
