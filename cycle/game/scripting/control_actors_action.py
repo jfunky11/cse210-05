@@ -11,9 +11,8 @@ class ControlActorsAction(Action):
     The responsibility of ControlActorsAction is to get the direction and move the snake's head.
 
     Attributes:
-        _keyboard_service (KeyboardService): An instance of KeyboardService.
-        _init_ Initiates a new instance of ControlActorsAction
-        execute Runs the action for cycle one and two
+        _init_ Initiates: a new instance of ControlActorsAction
+        execute: Runs the action for cycle one and two
     """
 
     def __init__(self, keyboard_service):
@@ -21,6 +20,8 @@ class ControlActorsAction(Action):
 
         Args:
             keyboard_service (KeyboardService): An instance of KeyboardService.
+            cycle_one_direction: Keys for cycle one
+            cycle_two_direction: Keys for cycle two
         """
         self._keyboard_service = keyboard_service
         self._cycle_one_direction = Point(0, -constants.CELL_SIZE)
