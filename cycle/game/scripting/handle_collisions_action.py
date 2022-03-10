@@ -33,9 +33,8 @@ class HandleCollisionsAction(Action):
         """
         if not self._is_game_over:
             self._handle_segment_collision(cast)
-        self._handle_wall(cast)
-            
-        self._handle_game_over(cast)
+            self._handle_wall(cast)
+            self._handle_game_over(cast)
 
     def _handle_wall(self, cast):
         cycle_one = cast.get_first_actor("cycle_one")
@@ -110,7 +109,7 @@ class HandleCollisionsAction(Action):
             game_over = GameOver()
             game_over.set_position(position)
             game_over.set_text(self._game_over_message)
-            game_over.set_font_size(45)
+            game_over.set_font_size(50)
             cast.add_actor("messages", game_over)
             
             for segment in segments_one:

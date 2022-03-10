@@ -28,7 +28,7 @@ def main():
     cast = Cast()
     score1 = Score()
     score2 = Score()
-    score2.set_position(Point(constants.MAX_X-80, 0))
+    score2.set_position(Point(constants.MAX_X-70, 0))
     score1.add_points(3)
     score2.add_points(3)
     score1.set_player_name(cycle_one_name)
