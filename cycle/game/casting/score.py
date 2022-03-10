@@ -36,14 +36,22 @@ class Score(Actor):
         self.set_text(f"{self._player_name}: {self._points}")
         
     def get_points(self):
+        """sets points for the user
+        """
         return self._points
         
     def reduce_points(self):
+        """reduces points for the user"""
         self._points -= 1
         self.set_text(f"{self._player_name}: {self._points}")
         
         
     def set_player_name(self,name):
+        """sets the player's name
+        
+        Args:
+            name (name): gets the user inputted name
+        """
         self._player_name = name
         self.set_text(f"{self._player_name}: {self._points}")
         
