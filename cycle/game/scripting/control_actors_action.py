@@ -4,6 +4,7 @@ from game.shared.point import Point
 
 
 class ControlActorsAction(Action):
+
     """
     An input action that controls the snake.
 
