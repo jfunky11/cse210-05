@@ -15,6 +15,8 @@ from game.shared.color import Color
 from game.shared.point import Point
 
 def main():
+
+    # crestes two cycles, gets their position and color
     cycle_one = Cycle(Point(int(constants.MAX_X - 600), int(constants.MAX_Y / 2)))
     cycle_two = Cycle(Point(int(constants.MAX_X - 300), int(constants.MAX_Y / 2)))
     cycle_one.set_cycle_color(constants.GREEN)
@@ -28,7 +30,7 @@ def main():
     cast = Cast()
     score1 = Score()
     score2 = Score()
-    score2.set_position(Point(constants.MAX_X-80, 0))
+    score2.set_position(Point(constants.MAX_X-70, 0))
     score1.add_points(3)
     score2.add_points(3)
     score1.set_player_name(cycle_one_name)

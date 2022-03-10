@@ -3,10 +3,8 @@ from game.casting.actor import Actor
 
 
 class GameOver(Actor):
-    """A tasty item that snakes like to eat.
-
-
-    The responsibility of Food is to select a random position and points that it's worth.
+    """
+    Displays a Game Over Message
 
     Attributes:
     ---

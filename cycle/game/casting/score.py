@@ -7,7 +7,7 @@ class Score(Actor):
     """
     A record of points made or lost.
 
-    The responsibility of Score is to keep track of the points the player has earned by eating food.
+    The responsibility of Score is to keep track of the points the player has earned.
     It contains methods for adding and getting points. Client should use get_text() to get a string
     representation of the points earned.
 
@@ -15,6 +15,9 @@ class Score(Actor):
         _points (int): The points earned in the game.
     """
     def __init__(self):
+        """Sets starting points and position of points display
+        
+        """
         super().__init__()
         self._points = 0
         position = Point(1, 0)
@@ -33,12 +36,20 @@ class Score(Actor):
         self.set_text(f"{self._player_name}: {self._points}")
 
     def get_points(self):
+        """sets points for the user
+        """
         return self._points
 
     def reduce_points(self):
+        """reduces points for the user"""
         self._points -= 1
         self.set_text(f"{self._player_name}: {self._points}")
 
     def set_player_name(self,name):
+        """sets the player's name
+        
+        Args:
+            name (name): gets the user inputted name
+        """
         self._player_name = name
         self.set_text(f"{self._player_name}: {self._points}")

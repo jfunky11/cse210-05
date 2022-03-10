@@ -4,6 +4,7 @@ from game.shared.point import Point
 
 
 class ControlActorsAction(Action):
+
     """
     An input action that controls the snake.
 
@@ -11,6 +12,8 @@ class ControlActorsAction(Action):
 
     Attributes:
         _keyboard_service (KeyboardService): An instance of KeyboardService.
+        _cycle_one_direction: Keys for cycle one
+        _cycle_two_direction: Keys for cycle two
     """
 
     def __init__(self, keyboard_service):
@@ -18,6 +21,7 @@ class ControlActorsAction(Action):
 
         Args:
             keyboard_service (KeyboardService): An instance of KeyboardService.
+
         """
         self._keyboard_service = keyboard_service
         self._cycle_one_direction = Point(0, -constants.CELL_SIZE)
