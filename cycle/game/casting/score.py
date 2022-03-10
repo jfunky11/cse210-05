@@ -17,6 +17,9 @@ class Score(Actor):
         _points (int): The points earned in the game.
     """
     def __init__(self):
+        """Sets starting points and position of points display
+        
+        """
         super().__init__()
         self._points = 0
         position = Point(1, 0)
