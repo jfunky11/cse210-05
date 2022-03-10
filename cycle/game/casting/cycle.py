@@ -5,15 +5,24 @@ from game.shared.color import Color
 
 
 class Cycle(Actor):
-    """
-    A long limbless reptile.
+    """A fast motorcycle.
 
-    The responsibility of Snake is to move itself.
+    The responsibility of Cycle is to move itself.
 
     Attributes:
-        _points (int): The number of points the food is worth.
+    ---
+        _segments (list): A list of actors that make up each cycle.
+        _color (tuple): A tuple containing the values that make up a color.
+        _prepare_cycle(position) (method): A method that will create the cycle for each instance of Cycle.
+        _name (str): An empty string that will hold each players name.
     """
     def __init__(self, position):
+        """Constructs a new cycle.
+
+        Args:
+        ---
+            position (Point): The position and direction that each cycle will travel in at game start.
+        """
         super().__init__()
 
         self._segments = []
@@ -22,12 +31,25 @@ class Cycle(Actor):
         self._name = ""
 
     def get_segments(self):
+        """Gets the segments for each cycle.
+
+        Returns:
+        ---
+            List: The list of actors for each cycle"""
         return self._segments
-        
+
     def get_name(self):
+        """Gets the players name.
+
+        Returns:
+        ---
+            String: The players name as text."""
         return self._name
 
     def move_next(self):
+        """Moves the actor to its next position according to its velocity. Will move each actor
+        in _segments beginning from the last segment and ending with the first segment and
+        stepping by -1 to iterate through the last backwards."""
 
         # move all segments
         for segment in self._segments:
@@ -40,9 +62,21 @@ class Cycle(Actor):
             trailing.set_velocity(velocity)
 
     def get_cycle(self):
+        """Gets the first actor from _segments.
+
+        Returns:
+        ---
+            Actor: The first actor from the list of actors in _segments."""
         return self._segments[0]
 
-    def wall(self, game):  
+    def wall(self, game_over):
+        """Builds the wall for each cycle.
+
+        Args:
+        ---
+            Boolean: Sets the color for each cycle if game is not over. Changes each
+        cycle color to white if game is over.
+        """
 
         tail = self._segments[-1]
         velocity = tail.get_velocity()
@@ -53,20 +87,33 @@ class Cycle(Actor):
         segment.set_position(position)
         segment.set_velocity(velocity)
         segment.set_text("#")
-        if not game:
+        if not game_over:
             segment.set_color(self._color)
         else:
             segment.set_color(constants.WHITE)
         self._segments.append(segment)
 
     def turn_cycle(self, velocity):
+        """Changes the direction for a cycle by changing the velocity.
+
+        Args:
+        ---
+            Point: A given velocity to change direction.
+        """
+
         self._segments[0].set_velocity(velocity)
 
     def _prepare_cycle(self, position):
+        """Constructs a new cycle.
+
+        Args:
+        ---
+            Point: A position to set the cycle position and direction which it will travel in.
+        """
         x = position.get_x()
         y = position.get_y()
 
-        for i in range(constants.SNAKE_LENGTH):
+        for i in range(constants.CYCLE_LENGTH):
             position = Point(x, y + i * constants.CELL_SIZE)
             velocity = Point(0, 1 * -constants.CELL_SIZE)
             text = "@" if i == 0 else "#"
@@ -79,12 +126,23 @@ class Cycle(Actor):
             self._segments.append(segment)
 
     def set_cycle_color(self, color):
+        """Sets the color for each segment of a cycle.
+
+        Args:
+        ---
+            color (Color): The given color.
+        """
+
         self._color = color
 
         for segment in self._segments:
             segment.set_color(self._color)
-            
+
     def set_name(self, name):
+        """Sets the name for each player.
+
+        Args:
+        ---
+            String: The players given name as text.
+        """
         self._name = name
-    
-    

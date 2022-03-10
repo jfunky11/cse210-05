@@ -1,6 +1,5 @@
-from itertools import cycle
 import constants
-from game.casting.actor import Actor
+
 from game.scripting.action import Action
 from game.shared.point import Point
 from game.casting.game_over_message import GameOver
@@ -22,8 +21,6 @@ class HandleCollisionsAction(Action):
         self._is_game_over = False
         self._game_over_message = ""
 
-        
-
     def execute(self, cast, script):
         """Executes the handle collisions action.
 
@@ -34,7 +31,6 @@ class HandleCollisionsAction(Action):
         if not self._is_game_over:
             self._handle_segment_collision(cast)
         self._handle_wall(cast)
-            
         self._handle_game_over(cast)
 
     def _handle_wall(self, cast):
@@ -61,7 +57,7 @@ class HandleCollisionsAction(Action):
         # segments = snake.get_segments()[1:]
         segments_one = cycle_one.get_segments()[1:]
         segments_two = cycle_two.get_segments()[1:]
-        
+
         for segment_one in segments_one:
             if cycle_two_head.get_position().equals(segment_one.get_position()):
                 score2.reduce_points()
@@ -94,24 +90,24 @@ class HandleCollisionsAction(Action):
         Args:
             cast (Cast): The cast of Actors in the game.
         """
-        
+
         x = int(constants.MAX_X / 2)
         y = int(constants.MAX_Y / 2)
         position = Point(x, y)
-        
+
         if self._is_game_over:
             cycle_one = cast.get_first_actor("cycle_one")
             cycle_two = cast.get_first_actor("cycle_two")
-            
+
             segments_one = cycle_one.get_segments()
             segments_two = cycle_two.get_segments()
-            
+
             game_over = GameOver()
             game_over.set_position(position)
             game_over.set_text(self._game_over_message)
             game_over.set_font_size(45)
             cast.add_actor("messages", game_over)
-            
+
             for segment in segments_one:
                 segment.set_color(constants.WHITE)
 

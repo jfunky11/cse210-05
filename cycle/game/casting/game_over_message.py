@@ -1,20 +1,40 @@
-import random
 import constants
 from game.casting.actor import Actor
-from game.shared.point import Point
 
 
 class GameOver(Actor):
-    """
-    A tasty item that snakes like to eat.
+    """A tasty item that snakes like to eat.
+
 
     The responsibility of Food is to select a random position and points that it's worth.
 
     Attributes:
+    ---
         _points (int): The number of points the food is worth.
+
+        _color() (constant): The color value the game over message is displayed in.
     """
     def __init__(self):
-        "Constructs a new Food."
+        "Constructs a game over message."
         super().__init__()
         self._points = 0
-        self.set_color(constants.GREEN)
+        # self.set_color(constants.GREEN)
+        self._color = constants.GREEN
+
+    def get_color(self):
+        """Gets the actor's color as a tuple of three ints (r, g, b).
+
+        Returns:
+        ---
+            Color: The actor's text color.
+        """
+        return super().get_color()
+
+    def set_color(self, color):
+        """Updates the color to the given one.
+
+        Args:
+        ---
+            color (Color): The given color.
+        """
+        return super().set_color(color)
