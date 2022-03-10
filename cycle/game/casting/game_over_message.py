@@ -8,15 +8,11 @@ class GameOver(Actor):
 
     Attributes:
     ---
-        _points (int): The number of points the food is worth.
-
-        _color() (constant): The color value the game over message is displayed in.
+        _color (constant): The color value the game over message is displayed in.
     """
     def __init__(self):
         "Constructs a game over message."
         super().__init__()
-        self._points = 0
-        # self.set_color(constants.GREEN)
         self._color = constants.GREEN
 
     def get_color(self):

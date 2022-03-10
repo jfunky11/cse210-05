@@ -11,6 +11,7 @@ class VideoService:
         """Constructs a new VideoService using the specified debug mode.
 
         Args:
+        ---
             debug (bool): whether or not to draw in debug mode.
         """
         self._debug = debug
@@ -32,6 +33,7 @@ class VideoService:
         """Draws the given actor's text on the screen.
 
         Args:
+        ---
             actor (Actor): The actor to draw.
         """
         text = actor.get_text()
@@ -51,6 +53,7 @@ class VideoService:
         """Draws the text for the given list of actors on the screen.
 
         Args:
+        ---
             actors (list): A list of actors to draw.
         """
         for actor in actors:
@@ -66,6 +69,7 @@ class VideoService:
         """Whether or not the window was closed by the user.
 
         Returns:
+        ---
             bool: True if the window is closing; false if otherwise.
         """
         return not pyray.window_should_close()
@@ -74,6 +78,7 @@ class VideoService:
         """Opens a new window with the provided title.
 
         Args:
+        ---
             title (string): The title of the window.
         """
         pyray.init_window(constants.MAX_X, constants.MAX_Y, constants.CAPTION)
@@ -88,5 +93,12 @@ class VideoService:
             pyray.draw_line(x, 0, x, constants.MAX_Y, pyray.GRAY)
 
     def _get_x_offset(self, text, font_size):
+        """Gets the offset measurement for the text.
+        
+        Args:
+        ---
+            text (string): The actor's textual representation.
+            font_size (constant): The size of an actor.
+        """
         width = pyray.measure_text(text, font_size)
         return int(width / 2)

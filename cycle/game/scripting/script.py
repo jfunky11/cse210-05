@@ -2,8 +2,9 @@ class Script:
     """A collection of actions.
     The responsibility of Script is to keep track of a collection of actions. It has methods for 
     adding, removing and getting them by a group name.
-    
+
     Attributes:
+    ---
         _actions (dict): A dictionary of actions { key: group_name, value: a list of actions }
     """
 
@@ -15,6 +16,7 @@ class Script:
         """Adds an action to the given group.
 
         Args:
+        ---
             group (string): The name of the group.
             action (Action): The action to add.
         """
@@ -28,6 +30,7 @@ class Script:
         """Gets the actions in the given group.
 
         Args:
+        ---
             group (string): The name of the group.
         Returns:
             List: The actions in the group.
@@ -41,6 +44,7 @@ class Script:
         """Removes an action from the given group.
 
         Args:
+        ---
             group (string): The name of the group.
             action (Action): The action to remove.
         """

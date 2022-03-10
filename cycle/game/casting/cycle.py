@@ -13,7 +13,7 @@ class Cycle(Actor):
     ---
         _segments (list): A list of actors that make up each cycle.
         _color (tuple): A tuple containing the values that make up a color.
-        _prepare_cycle(position) (method): A method that will create the cycle for each instance of Cycle.
+        _prepare_cycle (method): A method that will create the cycle for each instance of Cycle.
         _name (str): An empty string that will hold each players name.
     """
     def __init__(self, position):
@@ -75,13 +75,13 @@ class Cycle(Actor):
         Args:
         ---
             Boolean: Sets the color for each cycle if game is not over. Changes each
-        cycle color to white if game is over.
+            cycle color to white if game is over.
         """
 
-        tail = self._segments[-1]
-        velocity = tail.get_velocity()
+        wall = self._segments[-1]
+        velocity = wall.get_velocity()
         offset = velocity.reverse()
-        position = tail.get_position().add(offset)
+        position = wall.get_position().add(offset)
 
         segment = Actor()
         segment.set_position(position)
@@ -116,7 +116,7 @@ class Cycle(Actor):
         for i in range(constants.CYCLE_LENGTH):
             position = Point(x, y + i * constants.CELL_SIZE)
             velocity = Point(0, 1 * -constants.CELL_SIZE)
-            text = "@" if i == 0 else "#"
+            text = "O" if i == 0 else "#"
 
             segment = Actor()
             segment.set_position(position)

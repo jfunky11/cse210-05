@@ -5,6 +5,7 @@ class Color:
     convenience methods for comparing them and converting to a tuple.
 
     Attributes:
+    ---
         _red (int): The red value.
         _green (int): The green value.
         _blue (int): The blue value.
@@ -16,6 +17,7 @@ class Color:
         value is the color's opacity.
 
         Args:
+        ---
             red (int): A red value.
             green (int): A green value.
             blue (int): A blue value.
@@ -30,6 +32,7 @@ class Color:
         """Gets the color as a tuple of four values (red, green, blue, alpha).
 
         Returns:
+        ---
             Tuple(int, int, int, int): The color as a tuple.
         """
         return (self._red, self._green, self._blue, self._alpha)

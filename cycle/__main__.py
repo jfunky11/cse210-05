@@ -11,26 +11,26 @@ from game.scripting.draw_actors_action import DrawActorsAction
 from game.directing.director import Director
 from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
-from game.shared.color import Color
 from game.shared.point import Point
 
 def main():
 
-    # crestes two cycles, gets their position and color
+    # Creates two cycles, gets their position and color
     cycle_one = Cycle(Point(int(constants.MAX_X - 600), int(constants.MAX_Y / 2)))
     cycle_two = Cycle(Point(int(constants.MAX_X - 300), int(constants.MAX_Y / 2)))
     cycle_one.set_cycle_color(constants.GREEN)
     cycle_two.set_cycle_color(constants.RED)
-    cycle_one_name = input("Please enter player 1 name: ")
-    cycle_two_name = input("Please enter player 2 name: ")
+    cycle_one_name = input("\n\nPlease enter player 1 name: " + "\n\n")
+    cycle_two_name = input("\n\nPlease enter player 2 name: " + "\n\n")
     cycle_one.set_name(cycle_one_name)
     cycle_two.set_name(cycle_two_name)
 
-    # create the cast
+    # Create the cast
     cast = Cast()
     score1 = Score()
     score2 = Score()
-    score2.set_position(Point(constants.MAX_X-70, 0))
+    score1.set_position(Point(constants.MAX_X - 850, 0))
+    score2.set_position(Point(constants.MAX_X - 200, 0))
     score1.add_points(3)
     score2.add_points(3)
     score1.set_player_name(cycle_one_name)
@@ -39,8 +39,8 @@ def main():
     cast.add_actor("cycle_two", cycle_two)
     cast.add_actor("score1", score1)
     cast.add_actor("score2", score2)
-    
-    # start the game
+
+    # Start the game
     keyboard_service = KeyboardService()
     video_service = VideoService()
 

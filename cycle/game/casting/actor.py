@@ -28,6 +28,7 @@ class Actor:
         """Gets the actor's color as a tuple of three ints (r, g, b).
 
         Returns:
+        ---
             Color: The actor's text color.
         """
         return self._color
@@ -36,6 +37,7 @@ class Actor:
         """Gets the actor's font size.
 
         Returns:
+        ---
             Point: The actor's font size.
         """
         return self._font_size
@@ -44,6 +46,7 @@ class Actor:
         """Gets the actor's position in 2d space.
 
         Returns:
+        ---
             Point: The actor's position in 2d space.
         """
         return self._position
@@ -52,6 +55,7 @@ class Actor:
         """Gets the actor's textual representation.
 
         Returns:
+        ---
             string: The actor's textual representation.
         """
         return self._text
@@ -60,6 +64,7 @@ class Actor:
         """Gets the actor's speed and direction.
 
         Returns:
+        ---
             Point: The actor's speed and direction.
         """
         return self._velocity
@@ -69,6 +74,7 @@ class Actor:
         from one side of the screen to the other when it reaches the given maximum x and y values.
 
         Args:
+        ---
             max_x (int): The maximum x value.
             max_y (int): The maximum y value.
         """
@@ -80,6 +86,7 @@ class Actor:
         """Updates the color to the given one.
 
         Args:
+        ---
             color (Color): The given color.
         """
         self._color = color
@@ -88,6 +95,7 @@ class Actor:
         """Updates the position to the given one.
 
         Args:
+        ---
             position (Point): The given position.
         """
         self._position = position
@@ -96,6 +104,7 @@ class Actor:
         """Updates the font size to the given one.
 
         Args:
+        ---
             font_size (int): The given font size.
         """
         self._font_size = font_size
@@ -104,6 +113,7 @@ class Actor:
         """Updates the text to the given value.
 
         Args:
+        ---
             text (string): The given value.
         """
         self._text = text
@@ -112,6 +122,7 @@ class Actor:
         """Updates the velocity to the given one.
 
         Args:
+        ---
             velocity (Point): The given velocity.
         """
         self._velocity = velocity

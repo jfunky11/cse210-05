@@ -4,6 +4,7 @@ class Director:
     The responsibility of a Director is to control the sequence of play.
 
     Attributes:
+    ---
         _video_service (VideoService): For providing video output.
     """
 
@@ -11,6 +12,7 @@ class Director:
         """Constructs a new Director using the specified video service.
 
         Args:
+        ---
             video_service (VideoService): An instance of VideoService.
         """
         self._video_service = video_service
@@ -19,6 +21,7 @@ class Director:
         """Starts the game using the given cast and script. Runs the main game loop.
 
         Args:
+        ---
             cast (Cast): The cast of actors.
             script (Script): The script of actions.
         """
@@ -33,6 +36,7 @@ class Director:
         """Calls execute for each action in the given group.
 
         Args:
+        ---
             group (string): The action group name.
             cast (Cast): The cast of actors.
             script (Script): The script of actions.

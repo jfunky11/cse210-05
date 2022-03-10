@@ -7,6 +7,7 @@ class KeyboardService:
     The responsibility of a KeyboardService is to indicate whether or not a key is up or down.
 
     Attributes:
+    ---
         _keys (Dict[string, int]): The letter to key mapping.
     """
 
@@ -28,6 +29,7 @@ class KeyboardService:
         """Checks if the given key is currently up.
 
         Args:
+        ---
             key (string): The given key (w, a, s, d or i, j, k, l)
         """
         pyray_key = self._keys[key.lower()]
@@ -37,6 +39,7 @@ class KeyboardService:
         """Checks if the given key is currently down.
 
         Args:
+        ---
             key (string): The given key (w, a, s, d or i, j, k, l)
         """
         pyray_key = self._keys[key.lower()]

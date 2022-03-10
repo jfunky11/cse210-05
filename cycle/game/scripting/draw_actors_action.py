@@ -8,6 +8,7 @@ class DrawActorsAction(Action):
     The responsibility of DrawActorsAction is to draw all the actors.
 
     Attributes:
+    ---
         _video_service (VideoService): An instance of VideoService.
     """
 
@@ -15,6 +16,7 @@ class DrawActorsAction(Action):
         """Constructs a new DrawActorsAction using the specified VideoService.
 
         Args:
+        ---
             video_service (VideoService): An instance of VideoService.
         """
         self._video_service = video_service
@@ -23,6 +25,7 @@ class DrawActorsAction(Action):
         """Executes the draw actors action.
 
         Args:
+        ---
             cast (Cast): The cast of Actors in the game.
             script (Script): The script of Actions in the game.
         """
