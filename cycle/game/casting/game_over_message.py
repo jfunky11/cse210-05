@@ -6,12 +6,11 @@ from game.shared.point import Point
 
 class GameOver(Actor):
     """
-    A tasty item that snakes like to eat.
-
-    The responsibility of Food is to select a random position and points that it's worth.
+    Displays a Game Over Message
 
     Attributes:
         _points (int): The number of points the food is worth.
+        set_color: Sets the font color
     """
     def __init__(self):
         "Constructs a new Food."
