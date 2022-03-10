@@ -13,7 +13,9 @@ class GameOver(Actor):
         set_color: Sets the font color
     """
     def __init__(self):
-        "Constructs a new Food."
+        """sets points to zero and sets color to green
+        
+        """
         super().__init__()
         self._points = 0
         self.set_color(constants.GREEN)
