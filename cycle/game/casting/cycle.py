@@ -77,7 +77,6 @@ class Cycle(Actor):
             Boolean: Sets the color for each cycle if game is not over. Changes each
             cycle color to white if game is over.
         """
-
         wall = self._segments[-1]
         velocity = wall.get_velocity()
         offset = velocity.reverse()
